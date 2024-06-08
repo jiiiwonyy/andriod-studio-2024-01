@@ -29,9 +29,10 @@ public class BookList extends AppCompatActivity {
         one=findViewById(R.id.one);
         two=findViewById(R.id.two);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-        isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
-
+        Intent intent = getIntent();
+        if(intent!=null) {
+            isLoggedIn = intent.getBooleanExtra("isLoggedIn", false);
+        }
     }
     public void onClick(View view){
 
@@ -49,6 +50,7 @@ public class BookList extends AppCompatActivity {
             two.setImageResource(R.drawable.list_type2);
         }
     }
+
 
     public void cartInput(View view){
         if (isLoggedIn) {

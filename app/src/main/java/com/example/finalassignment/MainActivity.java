@@ -1,5 +1,6 @@
 package com.example.finalassignment;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton bookListButton, loginButton, csViewButton, mypageButton;
     private boolean isImage = true;
     private boolean isLoggedIn = false;
+    ActivityResultLauncher<Intent> launcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(MainActivity.this, BookList.class);
-                startActivity(intent);
+                intent.putExtra("isLoggedIn", isLoggedIn); // isLoggedIn 정보를 전달
+                launcher.launch(intent);
                 showToast("도서목록 버튼이 클릭되었습니다.");
             }
         });
@@ -84,8 +89,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        Intent data = result.getData();
+                        // 로그인 성공 시 로그인 상태 업데이트
+                        isLoggedIn = data.getBooleanExtra("isLoggedIn", false);
+                    }
+                });
     }
     //토스트메시지 출력해주는 함수
     private void showToast(String message) {
@@ -114,11 +125,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                         isLoggedIn=true;
 
-                        //로그인 상태 정보를 저장하기 위해 SharedPreferences 사용
-                        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putBoolean("isLoggedIn", true);
-                        editor.apply();
+                        // 로그인 정보를 Intent에 추가하여 BookList 액티비티로 전달
+                        Intent intent = new Intent(MainActivity.this, BookList.class);
+                        intent.putExtra("isLoggedIn", isLoggedIn);
 
                         loginDialog.dismiss();
                     } else{
