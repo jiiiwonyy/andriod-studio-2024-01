@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마이페이지"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <android.widget.Button
+        android:id="@+id/informationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="나의 정보 확인하기"/>
+    <android.widget.Button
+        android:id="@+id/cartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="장바구니 보러가기"/>
+</LinearLayout>
