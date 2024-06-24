@@ -60,7 +60,7 @@ public class BookList extends AppCompatActivity {
         }
     }
 
-
+    /* 장바구니 담기 메소드 */
     public void cartInput(View view){
         if (isLoggedIn) {
             final int itemId = view.getId();
@@ -90,8 +90,7 @@ public class BookList extends AppCompatActivity {
         }
     }
 
-
-    //메뉴
+/* 메뉴 생성 및 클릭효과 */
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         mContext = getApplicationContext();
