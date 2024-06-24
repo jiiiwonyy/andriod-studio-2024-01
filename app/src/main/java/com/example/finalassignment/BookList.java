@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -25,6 +26,7 @@ public class BookList extends AppCompatActivity {
         frame1=findViewById(R.id.frame1);
         frame2=findViewById(R.id.frame2);
         frame2.setVisibility(View.INVISIBLE);
+        setTitle("기말 프로젝트");
 
         one=findViewById(R.id.one);
         two=findViewById(R.id.two);
@@ -33,6 +35,7 @@ public class BookList extends AppCompatActivity {
         if(intent!=null) {
             isLoggedIn = intent.getBooleanExtra("isLoggedIn", false);
         }
+
     }
     public void onClick(View view){
 
@@ -111,6 +114,11 @@ public class BookList extends AppCompatActivity {
             else{
                 showToast("로그인 후 이용가능합니다.");
             }
+        }
+        if(id==R.id.search_icon){
+            Intent intent = new Intent(BookList.this, SearchPage.class);
+            startActivity(intent);
+            showToast("검색 화면으로 이동합니다.");
         }
         return super.onOptionsItemSelected(item);
     }
