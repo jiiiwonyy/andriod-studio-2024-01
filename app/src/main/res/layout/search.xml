@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_result"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center_horizontal"
+            android:id="@+id/java_search"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/java2"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:src="@drawable/book11" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정가: 22,000원"
+                android:gravity="center" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center_horizontal"
+            android:id="@+id/ml_search"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ml2"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:src="@drawable/book21" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정가: 34,000원"
+                android:gravity="center" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center_horizontal"
+            android:id="@+id/linux_search"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/linux2"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:src="@drawable/book31"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정가: 30,000원"
+                android:gravity="center" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center_horizontal"
+            android:id="@+id/unity_result"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/unity2"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:src="@drawable/book41"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정가: 28,000원"
+                android:gravity="center" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="해당 도서는 없습니다."
+            android:textSize="24dp"
+            android:textStyle="italic"
+            android:id="@+id/nobook"
+            android:visibility="gone"/>
+    </FrameLayout>
+</LinearLayout>

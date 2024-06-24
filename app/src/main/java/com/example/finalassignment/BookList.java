@@ -107,13 +107,15 @@ public class BookList extends AppCompatActivity {
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
-                    Toast.makeText(getApplicationContext(), query, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookList.this, SearchResult.class);
+                    intent.putExtra("query", query);
+                    startActivity(intent);
                     return false;
                 }
 
                 @Override
                 public boolean onQueryTextChange(String newText) {
-                    Toast.makeText(getApplicationContext(), "입력중입니다.", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "입력중입니다.", Toast.LENGTH_SHORT).show();
                     return false;
                 }
             });
