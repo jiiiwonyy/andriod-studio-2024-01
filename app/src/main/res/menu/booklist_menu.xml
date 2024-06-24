@@ -4,8 +4,9 @@
     <item
         android:id="@+id/search_icon"
         android:icon="@drawable/search"
-        app:showAsAction="always"
-        android:title="search" />
+        app:showAsAction="ifRoom|collapseActionView"
+        android:title="search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
     <item
         android:id="@+id/home"
         android:title="흠으로"

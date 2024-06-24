@@ -1,8 +1,8 @@
 package com.example.finalassignment;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,13 +12,18 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 public class BookList extends AppCompatActivity {
     private TableLayout frame1, frame2;
     private ImageButton one, two;
     private boolean isLoggedIn;
+
+    public Context mContext;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,7 @@ public class BookList extends AppCompatActivity {
         if(intent!=null) {
             isLoggedIn = intent.getBooleanExtra("isLoggedIn", false);
         }
+
 
     }
     public void onClick(View view){
@@ -88,7 +94,31 @@ public class BookList extends AppCompatActivity {
     //메뉴
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
+        mContext = getApplicationContext();
         getMenuInflater().inflate(R.menu.booklist_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search_icon);
+        androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) searchItem.getActionView();
+
+        if (searchView!=null){
+            searchView.setMaxWidth(Integer.MAX_VALUE);
+            searchView.setQueryHint("검색어를 입력하세요");
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Toast.makeText(getApplicationContext(), query, Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    Toast.makeText(getApplicationContext(), "입력중입니다.", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            });
+        }
+
         return true;
     }
 
@@ -115,11 +145,7 @@ public class BookList extends AppCompatActivity {
                 showToast("로그인 후 이용가능합니다.");
             }
         }
-        if(id==R.id.search_icon){
-            Intent intent = new Intent(BookList.this, SearchPage.class);
-            startActivity(intent);
-            showToast("검색 화면으로 이동합니다.");
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
