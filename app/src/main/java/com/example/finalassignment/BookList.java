@@ -9,7 +9,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -23,7 +26,8 @@ public class BookList extends AppCompatActivity {
     private boolean isLoggedIn;
 
     public Context mContext;
-
+    private TableRow java1, ml1, linux1, unity1;
+    private ImageView java2, ml2, linux2, unity2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +40,70 @@ public class BookList extends AppCompatActivity {
         one=findViewById(R.id.one);
         two=findViewById(R.id.two);
 
+        java1 = findViewById(R.id.java1);
+        ml1 = findViewById(R.id.ml1);
+        linux1 = findViewById(R.id.linux1);
+        unity1 = findViewById(R.id.unity1);
+
+        java2 = findViewById(R.id.java2);
+        ml2 = findViewById(R.id.ml2);
+        linux2 = findViewById(R.id.linux2);
+        unity2 = findViewById(R.id.unity2);
+
         Intent intent = getIntent();
         if(intent!=null) {
             isLoggedIn = intent.getBooleanExtra("isLoggedIn", false);
         }
 
-
+        /* 각 책 이미지들의 대한 버튼리스너*/
+        java1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "java");
+            }
+        });
+         ml1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "ml");
+            }
+        });
+        linux1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "linux");
+            }
+        });
+        unity1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "unity");
+            }
+        });
+        java2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "java");
+            }
+        });
+        ml2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "ml");
+            }
+        });
+        linux2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "linux");
+            }
+        });
+        unity2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartInput(view, "unity");
+            }
+        });
     }
     public void onClick(View view){
 
@@ -61,33 +123,28 @@ public class BookList extends AppCompatActivity {
     }
 
     /* 장바구니 담기 메소드 */
-    public void cartInput(View view){
-        if (isLoggedIn) {
-            final int itemId = view.getId();
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setTitle("장바구니 담기");
-            alertDialogBuilder.setMessage("장바구니에 담으시겠습니까?");
-            alertDialogBuilder.setPositiveButton("네", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent = new Intent(BookList.this, Cart.class);
-                    intent.putExtra("item_id", itemId);
-                    startActivity(intent);
-                    Toast.makeText(BookList.this, "장바구니에 담기 완료!", Toast.LENGTH_LONG).show();
-                }
-            });
-            alertDialogBuilder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(BookList.this, "장바구니 담기 취소", Toast.LENGTH_LONG).show();
-                    dialogInterface.dismiss();
-                }
-            });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-        } else {
-            showToast("로그인 후 이용가능합니다.");
-        }
+    public void cartInput(View view, String str){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("장바구니 담기");
+        alertDialogBuilder.setMessage("장바구니에 담으시겠습니까?");
+        alertDialogBuilder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(BookList.this, Cart.class);
+                intent.putExtra("str", str);
+                startActivity(intent);
+                Toast.makeText(BookList.this, "장바구니에 담기 완료!", Toast.LENGTH_LONG).show();
+            }
+        });
+        alertDialogBuilder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(BookList.this, "장바구니 담기 취소", Toast.LENGTH_LONG).show();
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
 /* 메뉴 생성 및 클릭효과 */
@@ -137,14 +194,9 @@ public class BookList extends AppCompatActivity {
             showToast("도서목록 메뉴가 클릭되었습니다");
         }
         else if (id==R.id.cart){
-            if(isLoggedIn) {
-                Intent intent = new Intent(BookList.this, Cart.class);
-                startActivity(intent);
-                showToast("장바구니 메뉴가 클릭되었습니다");
-            }
-            else{
-                showToast("로그인 후 이용가능합니다.");
-            }
+            Intent intent = new Intent(BookList.this, Cart.class);
+            startActivity(intent);
+            showToast("장바구니 메뉴가 클릭되었습니다");
         }
 
         return super.onOptionsItemSelected(item);
