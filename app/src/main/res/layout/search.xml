@@ -86,7 +86,7 @@
             android:orientation="vertical"
             android:padding="8dp"
             android:gravity="center_horizontal"
-            android:id="@+id/unity_result"
+            android:id="@+id/unity_search"
             android:visibility="gone">
 
             <ImageView

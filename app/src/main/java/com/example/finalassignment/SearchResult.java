@@ -22,7 +22,7 @@ public class SearchResult extends AppCompatActivity {
         java = findViewById(R.id.java_search);
         ml = findViewById(R.id.ml_search);
         linux = findViewById(R.id.linux_search);
-        unity = findViewById(R.id.unity_result);
+        unity = findViewById(R.id.unity_search);
 
         searchResultTextView = findViewById(R.id.search_result);
         noBook = findViewById(R.id.nobook);
