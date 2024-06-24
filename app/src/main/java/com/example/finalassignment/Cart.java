@@ -33,27 +33,7 @@ public class Cart extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.cart_menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-        if(id==R.id.home){
-            Intent intent = new Intent(Cart.this, MainActivity.class);
-            startActivity(intent);
-            showToast("홈으로 메뉴가 클릭되었습니다");
-        }
-        else if(id==R.id.booklist){
-            Intent intent = new Intent(Cart.this, BookList.class);
-            startActivity(intent);
-            showToast("도서목록 메뉴가 클릭되었습니다");
-        }
-        return super.onOptionsItemSelected(item);
-    }
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
