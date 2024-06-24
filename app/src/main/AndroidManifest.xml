@@ -27,6 +27,7 @@
         <activity android:name=".Cart" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="cart"/>
         <activity android:name=".SearchResult" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="searchResult"
             android:parentActivityName=".BookList"/>
+        <activity android:name=".CustomerCenter" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="cs"/>
     </application>
 
 </manifest>

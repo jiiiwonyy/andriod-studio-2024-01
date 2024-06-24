@@ -64,12 +64,9 @@ public class MainActivity extends AppCompatActivity {
         csViewButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(isLoggedIn) {
-                    showToast("고객센터 버튼이 클릭되었습니다.");
-                }
-                else{
-                    showToast("로그인 후 이용가능합니다.");
-                }
+                Intent intent = new Intent(MainActivity.this, CustomerCenter.class);
+                startActivity(intent);
+                showToast("고객센터 버튼이 클릭되었습니다.");
             }
         });
 
