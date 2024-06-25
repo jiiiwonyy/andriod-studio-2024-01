@@ -50,11 +50,6 @@ public class BookList extends AppCompatActivity {
         linux2 = findViewById(R.id.linux2);
         unity2 = findViewById(R.id.unity2);
 
-        Intent intent = getIntent();
-        if(intent!=null) {
-            isLoggedIn = intent.getBooleanExtra("isLoggedIn", false);
-        }
-
         /* 각 책 이미지들의 대한 버튼리스너*/
         java1.setOnClickListener(new View.OnClickListener() {
             @Override

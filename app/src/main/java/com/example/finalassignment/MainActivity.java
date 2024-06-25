@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(MainActivity.this, BookList.class);
-                intent.putExtra("isLoggedIn", isLoggedIn); // isLoggedIn 정보를 전달
-                launcher.launch(intent);
+                startActivity(intent);
                 showToast("도서목록 버튼이 클릭되었습니다.");
             }
         });
@@ -121,10 +120,6 @@ public class MainActivity extends AppCompatActivity {
                     if(username.getText().toString().trim().equals("1234")&&password.getText().toString().trim().equals("1234")){
                         Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                         isLoggedIn=true;
-
-                        // 로그인 정보를 Intent에 추가하여 BookList 액티비티로 전달
-                        Intent intent = new Intent(MainActivity.this, BookList.class);
-                        intent.putExtra("isLoggedIn", isLoggedIn);
 
                         loginDialog.dismiss();
                     } else{
