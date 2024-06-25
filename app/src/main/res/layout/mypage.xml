@@ -4,21 +4,198 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="마이페이지"
-        android:textSize="28dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
-    <android.widget.Button
-        android:id="@+id/informationButton"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="나의 정보 확인하기"/>
-    <android.widget.Button
-        android:id="@+id/cartButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="장바구니 보러가기"/>
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E6FFFF"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/user"
+                    android:layout_marginBottom="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최지원님"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_margin="16dp">
+
+                    <TableRow>
+                        <ImageView
+                            android:src="@drawable/bell"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginHorizontal="12dp"/>
+                        <ImageView
+                            android:src="@drawable/gift"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginHorizontal="12dp"/>
+                        <ImageView
+                            android:src="@drawable/heart"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginHorizontal="12dp"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:gravity="center"
+                            android:text="알림"/>
+                        <TextView
+                            android:gravity="center"
+                            android:text="선물함"/>
+                        <TextView
+                            android:gravity="center"
+                            android:text="찜"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나의 주문현황"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center"
+                    android:background="#F8FFFF">
+
+                    <TableRow>
+                        <TextView
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginHorizontal="44dp"
+                            android:text="0"/>
+                        <TextView android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginHorizontal="44dp"
+                            android:text="0"/>
+                        <TextView android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginHorizontal="44dp"
+                            android:text="0"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:gravity="center"
+                            android:text="준비중"/>
+                        <TextView
+                            android:gravity="center"
+                            android:text="배송중"/>
+                        <TextView
+                            android:gravity="center"
+                            android:text="배송완료"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:layout_gravity="center">
+                <TableRow>
+                    <TextView android:text="쇼핑내역"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="주문/배송 목록"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                    <TextView android:text="선물함"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="매장 구매 내역"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                    <TextView android:text="영수증 조회 / 적립"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="이용권 내역"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                </TableRow>
+            </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:layout_gravity="center">
+                <TableRow>
+                    <TextView android:text="회원정보"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="회원 정보 관리"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                    <TextView android:text="배송주소록"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="MY매장"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                    <TextView android:text="카드 관리"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="나의 회원등급"
+                        android:textStyle="bold"
+                        android:padding="16dp"
+                        android:layout_marginHorizontal="20dp"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -23,12 +23,14 @@
         </activity>
         <activity android:name=".MainActivity" android:label="mainActivity"/>
         <activity android:name=".BookList" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="bookList"/>
-        <activity android:name=".MyPage" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="mypage"/>
+        <activity android:name=".MyPage" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="mypage"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".Cart" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="cart"
             android:parentActivityName=".BookList"/>
         <activity android:name=".SearchResult" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="searchResult"
             android:parentActivityName=".BookList"/>
-        <activity android:name=".CustomerCenter" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="cs"/>
+        <activity android:name=".CustomerCenter" android:theme="@style/Theme.FinalAssignment.WithActionBar" android:label="cs"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
