@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             login.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-                    if(username.getText().toString().trim().equals("jiwon")&&password.getText().toString().trim().equals("jiwon123")){
+                    if(username.getText().toString().trim().equals("1234")&&password.getText().toString().trim().equals("1234")){
                         Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                         isLoggedIn=true;
 
