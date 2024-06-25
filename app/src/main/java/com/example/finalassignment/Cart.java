@@ -37,14 +37,12 @@ public class Cart extends AppCompatActivity {
         buttons = findViewById(R.id.buttons);
         buyButton = findViewById(R.id.buyButton);
 
-        // Intent에서 장바구니 아이템 ID를 읽어옴
+        // Intent에서 장바구니 아이템 str를 읽어옴
         Intent intent = getIntent();
         if (intent != null){
             bookName = intent.getStringExtra("str");
         }
 
-
-        // ID로 아이템 정보를 가져와서 TextView에 설정 (여기서는 단순히 ID를 표시)
         if("java".equalsIgnoreCase(bookName)){
             java.setVisibility(View.VISIBLE);
             buttons.setVisibility(View.VISIBLE);
